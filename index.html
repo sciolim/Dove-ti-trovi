@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dove ti Trovi - Gestione Oggetti di Casa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Dove ti Trovi</h1>
+        <p class="lead">Trova gli oggetti che possiedi in modo semplice e veloce - by Mario Scioli</p>
+    </header>
+
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <button id="addBtn" class="btn btn-success">Aggiungi Oggetto</button>
+            <button id="searchBtn" class="btn btn-primary">Cerca Oggetto</button>
+            <button id="printBtn" class="btn btn-secondary">Stampa Lista</button>
+            <button id="exportBtn" class="btn btn-info">Esporta</button>
+            <input type="file" id="importFile" style="display: none;" accept=".json">
+            <button id="importBtn" class="btn btn-warning">Importa</button>
+        </div>
+        <table id="objectTable" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantità</th>
+                    <th>Posizione</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h3 class="mt-5">Oggetti Esauriti</h3>
+        <table id="zeroStockTable" class="table table-danger table-hover">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantità</th>
+                    <th>Posizione</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Dove ti Trovi. Tutti i diritti riservati. Software di proprietà di Mario Scioli.</p>
+    </footer>
+
+    <div class="modal fade" id="objectModal" tabindex="-1" aria-labelledby="objectModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="objectModalLabel">Aggiungi/Modifica Oggetto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="objectForm">
+                        <div class="mb-3">
+                            <label for="objectName" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="objectName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="objectQuantity" class="form-label">Quantità</label>
+                            <input type="number" class="form-control" id="objectQuantity" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="objectLocation" class="form-label">Posizione</label>
+                            <input type="text" class="form-control" id="objectLocation" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                    <button type="button" class="btn btn-primary" id="saveObjectBtn">Salva</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
